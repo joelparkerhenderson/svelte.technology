@@ -15,11 +15,31 @@ You can build your entire app with Svelte, or you can add it incrementally to an
 [Read the introductory blog post](/blog/frameworks-without-the-framework) to learn more about Svelte's goals and philosophy.
 
 
+### Hello world
+
+Svelte makes it easy to write the typical "Hello world" app, by creating one HTML file:
+
+```html
+<!--{ title: 'Hello world' }-->
+Hello world
+```
+
+> Wherever you see <strong style="font-weight: 700; font-size: 16px; font-family: Inconsolata, monospace; color: rgba(170,30,30, 0.8)">REPL</strong> links, click through for an interactive example
+
+The Svelte compiler converts the HTML file into a JavaScript module, and you use it like this:
+
+```js
+/* { filename: 'main.js' } */
+import App from './App.html';
+const app = new App({target: document.querySelector('main')});
+app.destroy();
+```
+
 ### Understanding Svelte components
 
 In Svelte, an application is composed from one or more *components*. A component is a reusable self-contained block of code that encapsulates markup, styles and behaviours that belong together.
 
-Like Ractive and Vue, Svelte promotes the concept of *single-file components*: a component is just an `.html` file. Here's a simple example:
+Like Ractive and Vue, Svelte promotes the concept of *single-file components*: a component is just an `.html` file. Here's a simple example that shows an HTML headline tag and a Svelte template tag:
 
 ```html
 <!--{ title: 'Hello world!' }-->
@@ -32,8 +52,6 @@ Like Ractive and Vue, Svelte promotes the concept of *single-file components*: a
 	name: 'world'
 }
 ```
-
-> Wherever you see <strong style="font-weight: 700; font-size: 16px; font-family: Inconsolata, monospace; color: rgba(170,30,30, 0.8)">REPL</strong> links, click through for an interactive example
 
 Svelte turns this into a JavaScript module that you can import into your app:
 
